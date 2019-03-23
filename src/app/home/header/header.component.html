@@ -1,0 +1,26 @@
+﻿<header class="main-header" [ngClass]="{'sidebar-collapse':canvasOn==false}">
+   
+    <a href="javascript:void(0)" class="logo" >
+        <span class="logo-mini">ALT</span>
+        <span class="logo-lg">AdminLTE</span>
+    </a>
+
+    <nav class="navbar navbar-static-top">
+
+        <a href="javascript:void(0)" class="sidebar-toggle" (click)="toggleCanvasOn(); $event.stopPropagation()">
+            <i class="fa fa-align-justify"></i>
+        </a>
+
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <home-header-messagesmenu [menuOpen]="messagesMenuOpen" (menuOpenChange)="onMessagesMenuOpen($event)"></home-header-messagesmenu>
+                <home-header-usermenu [menuOpen]="userMenuOpen" (menuOpenChange)="onUserMenuOpen($event)"></home-header-usermenu>
+                <li>
+                    <a href="javascript:void(0)"><i class="fa fa-gears"></i></a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
+</header>

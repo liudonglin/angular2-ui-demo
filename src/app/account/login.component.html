@@ -1,0 +1,41 @@
+﻿<div class="login-box">
+    <div class="login-logo">
+        ManagerCenter
+    </div>
+    <div class="login-box-body">
+        <form class="form-horizontal" #loginForm="ngForm">
+            <p class="login-box-msg">Sign in to start your session</p>
+            <div class="form-group has-feedback" [@NameflyInOut]>
+                <input type="text" class="form-control" placeholder="LoginName" [(ngModel)]="user.LoginName" name="name" #name="ngModel" required>
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                <div [hidden]="name.valid || name.pristine" class="error-block">
+                    LoginName is required
+                </div>
+            </div>
+            <div class="form-group has-feedback" [@PasswordflyInOut]>
+                <input id="tbpassword" type="password" class="form-control" placeholder="Password" [(ngModel)]="user.Password" name="password" #password="ngModel" required>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                <div [hidden]="password.valid || password.pristine" class="error-block">
+                    Password is required
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-7">
+                    <div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox"> Remember Me
+                        </label>
+                    </div>
+                </div>
+                <div class="col-xs-5">
+                    <button (click)="SignIn(); $event.stopPropagation()" class="btn btn-primary btn-block btn-flat" [disabled]="!loginForm.form.valid||logining==true">
+                        <span *ngIf="logining==false"> Sign in </span>
+                        <span *ngIf="logining==true">Please wait...</span>
+                    </button>
+                </div>
+            </div>
+            <div class="social-auth-links text-center">
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+﻿<span class="select2-container" style="width: 100%;">
+    <span class="selection">
+        <span class="select2-selection select2-selection--single">
+            <span class="select2-selection__rendered" (click)="toggleDropdown()"></span>
+            <span class="select2-selection__arrow" role="presentation">
+                <b [ngClass]="{'dropdown-open':dropdown}"></b>
+            </span>
+        </span>
+    </span>
+</span>
+
+<span class="select2-container" [ngClass]="{'dropdown-open':!dropdown}">
+    <span class="select2-dropdown select2-dropdown--below" style="width: 100%;" >
+        <span class="select2-search select2-search--dropdown">
+            <input class="select2-search__field" type="search" [(ngModel)]="searchText" (ngModelChange)="onSearchTextChange($event)">
+        </span>
+        <span class="select2-results">
+            <ul class="select2-results__options" >
+                <li *ngFor="let option of currentOptions" class="select2-results__option" (click)="selectOption(option)"
+                    [ngClass]="{'selected':currentSelect.value==option.value}">{{option.text}}</li>
+            </ul>
+        </span>
+    </span>
+</span>

@@ -1,0 +1,7 @@
+﻿.pagination>li>a {
+    background: #fafafa;
+    color: #666;
+}
+.no-margin{
+    margin: 0 !important;
+}

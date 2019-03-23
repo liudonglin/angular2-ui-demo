@@ -1,0 +1,85 @@
+﻿<div class="input-group date" >
+    <div class="input-group-addon">
+        <i class="fa fa-calendar"></i>
+    </div>
+    <input type="text" class="form-control pull-right" (click)="togglePickerOpen()" placeholder="{{controlModel.placeholder}}" [(ngModel)]="pickerValue">
+</div>
+<div class="datepicker datepicker-dropdown" [hidden]="!pickerOpen">
+    <div class="datepicker-days" [hidden]="!daysPickerShow">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th class="prev" (click)="prevMonth()">«</th>
+                    <th colspan="5" class="datepicker-switch" (click)="MonthsPickerOpen()">{{calendarMonths[currentMonth-1]}}   {{currentYear}} </th>
+                    <th class="next" (click)="nextMonth()">»</th>
+                </tr>
+                <tr>
+                    <th class="dow">一</th>
+                    <th class="dow">二</th>
+                    <th class="dow">三</th>
+                    <th class="dow">四</th>
+                    <th class="dow">五</th>
+                    <th class="dow">六</th>
+                    <th class="dow">七</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let week of calendarWeeks">
+                    <td *ngFor="let day of week.days" class="day" [ngClass]="{'old':day.month!=currentMonth,'active':buildPickerValue(day.year,day.month,day.day)==pickerValue}" (click)="selectDay(day)">{{day.day}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr style="display: none;">
+                    <th colspan="3" class="today"><button type="button" class="btn btn-sm btn-default">Clear</button></th>
+                    <th></th>
+                    <th colspan="3" class="clear"><button type="button" class="btn btn-sm btn-primary">Today</button></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="datepicker-months" [hidden]="!monthsPickerShow">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th class="prev" (click)="prevYear()">«</th>
+                    <th colspan="5" class="datepicker-switch" (click)="YearsPickerOpen()">{{currentYear}}</th>
+                    <th class="next" (click)="nextYear()">»</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="7">
+                        <span class="month" [ngClass]="{'active':i+1==currentMonth}" *ngFor="let month of calendarMonths;let i=index" (click)="DaysPickerOpen(i)">{{month}}</span>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot>
+        </table>
+    </div>
+    <div class="datepicker-years" [hidden]="!yearsPickerShow">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th class="prev" (click)="prevYearRange()">«</th>
+                    <th colspan="5" class="datepicker-switch">{{calendarYears&&calendarYears[1]}}-{{calendarYears&&calendarYears[10]}}</th>
+                    <th class="next" (click)="nextYearRange()">»</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="7">
+                        <span class="year" [ngClass]="{'active':year==currentYear}" *ngFor="let year of calendarYears" (click)="MonthsPickerOpen(year)">{{year}}</span>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="7" class="today" style="display: none;">Today</th>
+                </tr>
+                <tr>
+                    <th colspan="7" class="clear" style="display: none;">Clear</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+﻿.form-group {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.form-group.has-error .help-block {
+    color: #d9534f;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

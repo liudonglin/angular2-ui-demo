@@ -1,0 +1,48 @@
+﻿<div class="sidebar-mini" [ngClass]="{'sidebar-collapse':canvasOn==false,'sidebar-open':canvasOn==true}">
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="/assets/img/user-default.jpg" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>Alexander Pierce</p>
+                    <a href="javascript:void(0)"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+            <div class="sidebar-form">
+                <input type="text" placeholder="Search...">
+            </div>
+            <ul class="sidebar-menu">
+                <li class="header">MAIN NAVIGATION</li>
+                <li class="treeview" *ngFor="let menu of menus" [ngClass]="{'menu-open': menu.open}">
+                    <a href="javascript:void(0)" (click)="toggleMenuOpen(menu)">
+                        <i [ngClass]="menu.icons"></i> <span>{{menu.text}}</span>
+                        <span class="pull-right-container" *ngIf="menu.children.length> 0">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu" *ngIf="menu.children.length> 0">
+                        <template [ngTemplateOutlet]="childrenMenus" [ngOutletContext]="{ data : child }" *ngFor="let child of menu.children">
+                        </template>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </aside>
+</div>
+
+<template #childrenMenus let-child="data">
+    <li [ngClass]="{'menu-open': child.open}">
+        <a href="javascript:void(0)" (click)="toggleMenuOpen(child)">
+            <i [ngClass]="child.icons"></i> {{child.text}}
+            <span class="pull-right-container" *ngIf="child.children.length> 0">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu" *ngIf="child.children.length> 0">
+            <template [ngTemplateOutlet]="childrenMenus" [ngOutletContext]="{ data : _child }" *ngFor="let _child of child.children">
+            </template>
+        </ul>
+    </li>
+</template>

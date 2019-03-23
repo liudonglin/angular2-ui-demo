@@ -1,0 +1,6 @@
+﻿<div class="checkbox" *ngFor="let option of controlModel.options">
+    <label>
+        <input type="checkbox" [checked]="isSelected(option)" (click)="onCheckClick(option)">
+        {{option.text}}
+    </label>
+</div>

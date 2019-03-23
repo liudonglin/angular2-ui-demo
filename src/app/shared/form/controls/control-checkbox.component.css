@@ -1,0 +1,20 @@
+﻿.checkbox{
+    display:inline-block;
+    margin-right:10px;
+    padding-top: 3px;
+    padding-bottom:4px;
+}
+.checkbox input[type="checkbox"] {
+    width:16px;
+    height:16px;
+    margin-top:1px;
+    margin-left: -20px;
+}
+.checkbox input[type="checkbox"]:focus {
+    outline: none;
+}
+.checkbox label{
+    font-size: 12px;
+    padding-bottom:5px;
+    padding-top:5px;
+}

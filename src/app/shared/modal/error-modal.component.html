@@ -1,0 +1,10 @@
+﻿<modal [animation]="animation" [keyboard]="keyboard" [backdrop]="backdrop" (onClose)="Closed()" (onDismiss)="Dismissed()"
+       (onOpen)="Opened()">
+    <modal-header [show-close]="true">
+        <h4 class="modal-title">I'm a modal!</h4>
+    </modal-header>
+    <modal-body>
+        <p>error msg</p>
+    </modal-body>
+    <modal-footer [show-default-buttons]="true"></modal-footer>
+</modal>

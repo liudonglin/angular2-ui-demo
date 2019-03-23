@@ -1,0 +1,13 @@
+﻿<div class="wrapper skin-blue">
+    <home-header [canvasOn]="canvasOn" (onCanvasChange)="onCanvasChange($event)"></home-header>
+    <home-menubar [canvasOn]="canvasOn" ></home-menubar>
+    <div class="content-wrapper" [ngClass]="{'sidebar-collapse':canvasOn==false,'sidebar-open':canvasOn==true}">
+        <home-breadcrumb></home-breadcrumb>
+        <section class="content">
+            <router-outlet></router-outlet>
+        </section>
+</div>
+    <home-footer [canvasOn]="canvasOn"></home-footer>
+</div>
+
+

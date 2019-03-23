@@ -1,0 +1,14 @@
+﻿<box-primary [bodyTemplate]="formBody" [footerTemplate]="formFooter" [canCollapse]="true" [title]="formTitle">
+</box-primary>
+
+<template #formBody>
+    <form class="form-horizontal" [formGroup]="form">
+        <form-control *ngFor="let control of controlmodels" [controlForm]="form.get(control.key)" [controlModel]="control"></form-control>
+    </form>
+</template>
+
+<template #formFooter>
+    <button class="btn btn-default" (click)="resetBtnClick()">Cancel</button>
+    <button class="btn btn-primary pull-right" (click)="sureBtnClick()">Sure</button>
+</template>
+

@@ -1,0 +1,29 @@
+﻿<span class="select2-container" style="width: 100%;">
+    <span class="selection">
+        <span class="select2-selection select2-selection--multiple">
+            <ul class="select2-selection__rendered" (click)="toggleDropdown()">
+                <li class="select2-selection__choice" *ngFor="let option of currentSelects">
+                    <span class="select2-selection__choice__remove" (click)="removeOption(option); $event.stopPropagation()">×</span>
+                    {{option.text}}
+                </li>
+                <li class="select2-search select2-search--inline">
+                    <input class="select2-search__field" >
+                </li>
+            </ul>
+        </span>
+    </span>
+    <span class="dropdown-wrapper">
+    </span>
+</span>
+
+<span class="select2-container" [ngClass]="{'dropdown-open':!dropdown}" style="width: 100%;">
+    <span class="select2-dropdown" style="width: 100%;">
+        <span class="select2-results">
+            <ul class="select2-results__options" >
+                <li class="select2-results__option" (click)="selectOption(option)"
+                    [ngClass]="{'selected':isSelected(option)}"
+                    *ngFor="let option of controlModel.options">{{option.text}}</li>
+            </ul>
+        </span>
+    </span>
+</span>

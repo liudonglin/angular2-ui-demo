@@ -1,0 +1,13 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <form-horizontal [formTitle]="'动态表单'" (onSureBtnClick)="horizontalFormSure($event)" [controlmodels]="formModels"></form-horizontal>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table-simple></table-simple>
+    </div>
+</div>
+
+<button type="button" class="btn btn-default" (click)="modalOpen()">Open me!</button>
+

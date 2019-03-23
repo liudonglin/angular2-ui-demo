@@ -1,0 +1,5 @@
+﻿<div class="radio" *ngFor="let option of controlModel.options">
+    <label>
+        <input type="radio" name="{{controlModel.key+'_RadioGroup'}}" value="{{option.value}}" (click)="onRadioClick(option)"/>{{option.text}}
+    </label>
+</div>

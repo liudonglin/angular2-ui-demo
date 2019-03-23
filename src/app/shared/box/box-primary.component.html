@@ -1,0 +1,21 @@
+﻿<div class="box box-primary" *ngIf="!destroy">
+    <div class="box-header with-border">
+        <h3 class="box-title">{{ title }}</h3>
+        <div class="box-tools pull-right">
+            <button *ngIf="canCollapse" type="button" class="btn btn-box-tool" (click)="toggleOpen()"><i class="fa" [ngClass]="{'fa-minus':open,'fa-plus':!open}" ></i></button>
+            <button *ngIf="canClose" type="button" class="btn btn-box-tool" (click)="closeBox()"><i class="fa fa-remove"></i></button>
+        </div>
+    </div>
+    <div [@BoxOpen]="getOpenStr()" class="hidden-body">
+        <div class="box-body">
+            <template [ngTemplateOutlet]="bodyTemplate">
+            </template>
+        </div>
+
+        <div class="box-footer">
+            <template [ngTemplateOutlet]="footerTemplate">
+            </template>
+        </div>
+    </div>
+</div>
+

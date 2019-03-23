@@ -1,0 +1,8 @@
+﻿:host-context(.has-error) /deep/ .ql-toolbar, :host-context(.has-error) /deep/ .ql-container {
+    border-color: #a94442 !important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+
+:host /deep/ .ql-container {
+    min-height:200px;
+}

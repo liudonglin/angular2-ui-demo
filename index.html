@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <title>Angular App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
+
+    <link href="src/assets/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="src/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <link href="/node_modules/quill/dist/quill.snow.css" rel="stylesheet">
+
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+</head>
+<body>
+    <my-app>Loading AppComponent content here 123...</my-app>
+</body>
+</html>
+
